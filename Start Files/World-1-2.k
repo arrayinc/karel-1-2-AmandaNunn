@@ -5,3 +5,26 @@
  */
 
 import "turns";
+
+function putAndRun(){
+	putBeeper();
+	turnAround();
+}
+
+function rightAroundCorners(){
+	move();
+	turnRight();
+	move();
+}
+
+function takeCareofPothole(){
+	rightAroundCorners();
+	putAndRun();
+	rightAroundCorners();
+}
+ 
+function Solution(){
+	takeCareofPothole();
+	move();
+	takeCareofPothole();
+}

@@ -3,28 +3,30 @@
  * ---------------------------
  * Uh oh. We've got some potholes. Ewww.
  */
-
 import "turns";
 
-function putAndRun(){
-	putBeeper();
-	turnAround();
+function FillPotHoles(){
+	while(frontIsClear()){
+		checkRight();
+	}
 }
 
-function rightAroundCorners(){
+function checkRight(){
+	if(rightIsClear()){
+		fillPotHole();
+	}
 	move();
+}
+
+function fillPotHole(){
 	turnRight();
-	move();
-}
+		move();
 
-function takeCareofPothole(){
-	rightAroundCorners();
-	putAndRun();
-	rightAroundCorners();
-}
- 
-function Solution(){
-	takeCareofPothole();
-	move();
-	takeCareofPothole();
+		if(noBeepersPresent()){
+			putBeeper();
+		}
+
+		turnAround();
+		move();
+		turnRight();
 }
